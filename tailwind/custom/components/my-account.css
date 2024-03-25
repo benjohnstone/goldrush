@@ -1,0 +1,68 @@
+.woocommerce-account .entry-content > *,
+.woocommerce-account .entry-header > * {
+    @apply max-w-content;
+}
+.woocommerce-MyAccount-content {
+    @apply flex-1;
+}
+.woocommerce-account .entry-content > .woocommerce {
+    @apply lg:flex;
+} 
+.woocommerce-account .entry-content > .woocommerce:has(form.login),
+.woocommerce-lost-password .entry-content > .woocommerce {
+    @apply block;
+}
+.woocommerce-MyAccount-navigation {
+    @apply w-full lg:w-[200px] lg:mr-10 text-base;
+}
+.woocommerce-MyAccount-navigation > ul {
+    @apply list-none p-0 border rounded-md m-0 shop-table-border ;
+}
+.woocommerce-MyAccount-navigation > ul a {
+    @apply text-dark no-underline block p-2;
+}
+.woocommerce-MyAccount-navigation > ul > li {
+    @apply m-0 p-0 ;
+}
+.woocommerce-MyAccount-navigation > ul > li:not(:last-child) {
+    @apply border-b;
+}
+.woocommerce-account .entry-content h2 {
+    @apply font-sans uppercase  text-dark text-xl;
+}
+.woocommerce-account .entry-content h3 {
+    @apply font-sans text-dark text-lg;
+}
+form.edit-account fieldset {
+    @apply border shop-table-border p-5 rounded-lg mt-5;
+}
+form.edit-account,
+body.woocommerce-edit-address .woocommerce-address-fields__field-wrapper {
+    @apply lg:grid lg:grid-cols-2;
+}
+form.edit-account > .woocommerce-form-row,
+body.woocommerce-edit-address .woocommerce-address-fields__field-wrapper .form-row {
+    @apply col-span-2;
+}
+form.edit-account > .woocommerce-form-row.woocommerce-form-row--first,
+form.edit-account > .woocommerce-form-row.woocommerce-form-row--last,
+body.woocommerce-edit-address .woocommerce-address-fields__field-wrapper .form-row-first,
+body.woocommerce-edit-address .woocommerce-address-fields__field-wrapper .form-row-last {
+    @apply col-span-1;
+}
+
+body.woocommrece-edit-address .woocommerce-address-fields__field-wrapper {
+
+}
+
+
+.woocommerce-account:has(form.login) .entry-content > *, 
+.woocommerce-account:has(form.login) .entry-header > *,
+.woocommerce-lost-password .entry-content > *, 
+.woocommerce-lost-password .entry-header > *  {
+    @apply max-w-2xl;
+}
+
+.logged-in.woocommerce-account .entry-header h1.entry-title {
+    @apply border-b border-concrete-600 pb-8 text-3xl;
+}

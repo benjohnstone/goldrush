@@ -1,0 +1,8 @@
+a.wp-block-button__link.has-primary-background-color {
+    @apply text-white;
+}
+
+
+a.wp-block-button__link {
+	@apply no-underline uppercase font-bold tracking-wide;
+}

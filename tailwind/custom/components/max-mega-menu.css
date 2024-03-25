@@ -1,0 +1,52 @@
+#mega-menu-wrap-menu-1 #mega-menu-menu-1 > li.mega-menu-item > a.mega-menu-link {
+    @apply text-left uppercase font-bold md:hover:bg-white md:hover:text-primary text-[1.7em] my-2;
+}
+#mega-menu-wrap-menu-1 #mega-menu-menu-1 > li.mega-menu-item {
+    @apply mx-1 my-1;
+}
+
+#mega-menu-wrap-menu-1 #mega-menu-menu-1 > li.mega-menu-item.mega-current-menu-item > a.mega-menu-link {
+    @apply md:bg-white md:text-primary;
+}
+
+@media all and (max-width: 767px) {
+    #mega-menu-wrap-menu-1 .mega-menu-toggle + #mega-menu-menu-1 {
+        @apply pt-10;
+    }
+    #mega-menu-wrap-menu-1 .mega-menu-toggle + #mega-menu-menu-1 > li.mega-menu-item a {
+        @apply px-5 py-2 h-auto text-lg;
+    }
+
+    ul.mega-sub-menu {
+        @apply float-none bg-transparent text-white !important;
+    }
+    ul.mega-sub-menu a.mega-menu-link {
+        @apply text-white bg-transparent px-5 !important;
+    }
+}
+
+#mega-menu-wrap-menu-1 #mega-menu-menu-1 > li.mega-menu-item {
+    @apply ml-0 mr-0 mt-0 mb-0;
+}
+
+#mega-menu-wrap-menu-1 .mega-menu-toggle .mega-toggle-block-0 .mega-toggle-animated-inner, 
+#mega-menu-wrap-menu-1 .mega-menu-toggle .mega-toggle-block-0 .mega-toggle-animated-inner::before, 
+#mega-menu-wrap-menu-1 .mega-menu-toggle .mega-toggle-block-0 .mega-toggle-animated-inner::after {
+    @apply bg-white;
+}
+
+
+#mega-menu-wrap-menu-1 .mobile-link {
+    @apply md:hidden !important;
+}
+#mega-menu-wrap-menu-1 .mobile-link::first-child {
+    @apply border-t border-white !important;
+}
+#mega-menu-wrap-menu-1 .mobile-link a {
+    @apply text-base  !important;
+}
+
+#mega-menu-wrap-menu-1 #mega-menu-menu-1 > li.mega-menu-flyout ul.mega-sub-menu {
+	@apply left-auto right-0 shadow-md;
+}
+

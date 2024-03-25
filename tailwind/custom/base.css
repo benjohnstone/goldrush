@@ -1,0 +1,155 @@
+/**
+ * Custom styles to immediately follow Tailwind’s `base` layer
+ *
+ * “Add things like base typography styles [or] opinionated global resets.”
+ *
+ * — from https://tailwindcss.com/docs/plugins#adding-base-styles
+ */
+
+/**
+ * This uses the background and foreground colors declared in the
+ * `theme.json` file and is applied both to the frontend and in the block
+ * editor.
+*/
+body {
+	@apply bg-background text-foreground font-sans;
+}
+
+
+p.is-style-material {
+    font-family: 'Material Symbols Outlined' !important;
+    font-variation-settings: 'FILL' 0,  'wght' 300,  'GRAD' 0,  'opsz' 24;
+
+    @apply rounded-full flex items-center justify-center  h-[2em] p-0 aspect-square leading-none mt-0 mb-0;
+}
+
+:root h1 {
+    @apply text-4xl leading-none;
+
+}
+
+
+.balanced {
+    @apply text-balance;
+}
+
+#masthead #navbar {
+    @apply h-36 text-lg;
+}
+#masthead.minimized #navbar {
+    @apply h-20 text-base;
+}
+
+#masthead .brand-name {
+    @apply text-xl transition-all duration-300;
+}
+#masthead.minimized .brand-name {
+    @apply text-lg;
+}
+
+#masthead .brand-tagline {
+    @apply text-lg transition-all duration-300;
+}
+#masthead.minimized .brand-tagline {
+    @apply text-sm;
+}
+
+img.navbar-logo {
+    @apply w-[150px] lg:w-[240px] lg:top-[calc(50%-110px)]; 
+}
+#masthead.minimized img.navbar-logo {
+    @apply w-[80px] lg:w-[120px] lg:-translate-y-2; 
+}
+
+#member-counter {
+    @apply lg:translate-y-8;
+}
+
+.is-style-title-font {
+    @apply font-mono font-medium;
+}
+
+.wp-block-uagb-slider.is-style-image-slider .uagb-slides {
+    @apply rounded-tr-[30px] rounded-br-[30px] overflow-hidden mb-10;
+}
+.wp-block-uagb-slider.is-style-image-slider .swiper-pagination {
+    @apply translate-y-10;
+}
+
+
+#get-involved.wp-block-cover:before {
+    @apply block content-[''] absolute z-20 w-0 h-0 top-0;
+
+    border-left: 60px solid transparent;
+    border-right: 60px solid transparent;
+    
+    border-top: 60px solid #ffffff;
+}
+
+.member-counter-box.wp-block-group {
+    @apply rounded-tr-none rounded-br-none !important;
+}
+
+#colophon a:hover {
+    @apply text-white;
+}
+
+:root .uagb-team__image-position-above img {
+    @apply max-w-[80%] h-auto block ml-auto mr-auto mb-3;
+}
+
+.navigation.pagination .nav-links {
+    @apply flex flex-row justify-center text-base;
+}
+
+.navigation.pagination .nav-links > * {
+    @apply border border-gray-300 bg-gray-50 p-3 py-2 mx-1;
+}
+
+.navigation.pagination .nav-links > a {
+    @apply cursor-pointer hover:bg-gray-300 hover:text-white;
+}
+
+.navigation.pagination .nav-links span.current {
+    @apply bg-primary border-primary text-white;
+}
+
+.uagb-post__title a {
+    @apply no-underline;
+}
+
+img.uagb-team__image-crop-circle {
+	@apply ml-auto mr-auto;
+}
+
+.uagb-team__content {
+	@apply text-center;
+}
+
+.uagb-post__text.uagb-post__excerpt {
+    @apply text-base;
+}
+
+.slick-slide .uagb-post__inner-wrap {
+    @apply mb-0 h-full !important;
+}
+
+.slick-slide:has(.uagb-post__inner-wrap) > div {
+    @apply h-full;
+}
+
+.type-post .post-feature-image {
+    @apply mb-12;
+}
+
+#recent-posts .type-post .post-feature-image,
+.blog #main .type-post .post-feature-image,
+.archive #main .type-post .post-feature-image {
+    @apply mb-5;
+}
+
+
+
+html {
+	@apply scroll-pt-40 scroll-smooth;
+}

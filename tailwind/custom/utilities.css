@@ -1,0 +1,30 @@
+/**
+ * Custom styles to immediately follow Tailwind’s `utilities` layer
+ *
+ * Add your own utility classes to this theme. Complex utility classes should
+ * be added using Tailwind’s plugin system:
+ *
+ * https://tailwindcss.com/docs/plugins#adding-utilities
+ */
+
+
+
+.input {
+    @apply border-concrete-600 border rounded-sm bg-concrete px-3 py-2;
+}
+.button {
+    @apply bg-concrete-700 px-3 py-2 rounded-sm text-black  no-underline border border-concrete-700;
+}
+.button-primary,
+:root a.button-primary  {
+    @apply  bg-primary px-3 py-2 rounded-sm text-white  no-underline border border-primary;
+}
+.text-dark {
+    @apply text-black/70;
+}
+.alert {
+    @apply rounded-md border text-base mb-4;
+}
+.alert-danger {
+    @apply border-red p-4 bg-red/20;
+}

@@ -1,0 +1,75 @@
+:root {
+    --gf-local-font-size: 24px;
+}
+
+body .gform_wrapper .gform_body .gform_fields .gfield .gfield_label {
+   @apply text-lg;
+}
+
+body .gform_wrapper .gform_body .gform_fields .gfield .ginput_container .gform-field-label {
+    @apply text-base;
+}
+body .gform_wrapper.gform-theme--framework .gform_body .gform_fields .gfield .ginput_container input[type=text],
+body .gform_wrapper.gform-theme--framework .gform_body .gform_fields .gfield .ginput_container input[type=email],
+body .gform_wrapper.gform-theme--framework .gform_body .gform_fields .gfield .ginput_container input[type=tel] {
+    @apply text-lg border-gray-400 shadow-none py-6 px-4 rounded-md;
+}
+
+body .gform_wrapper.gform-theme--framework .gform_body .gform_fields .gfield .ginput_container .ginput_container_date select {
+    @apply text-base border-gray-400 shadow-none focus:border-gray-500 focus:shadow-md;
+}
+
+
+body .gform_wrapper.gform-theme--framework .gform_body .gform_fields .gfield .ginput_container input::placeholder {
+    @apply text-gray-400;
+}
+
+body .gform-theme--framework .gf_progressbar .percentbar_green {
+    @apply bg-primary;
+}
+
+h3.gsection_title {
+    @apply text-2xl;
+}
+
+body .gform-theme--framework .gfield--type-section {
+    @apply border-none !important;
+}
+
+body .gform-theme--foundation .gform_fields {
+    @apply gap-y-6;
+}
+
+.gfield_checkbox#input_1_11 {
+    @apply md:grid md:grid-cols-2;
+}
+
+body .gform-theme--foundation input.gfield-choice-input,
+body .gform-theme--foundation input[type=checkbox] {
+    @apply w-6 h-6;
+}
+
+body .gform-theme--foundation.gform_wrapper input.gform_next_button,
+button.single_add_to_cart_button {
+	@apply bg-primary hover:bg-primary-600 text-lg py-4 px-8 uppercase !important;
+}
+
+#input_1_6 {
+    @apply grid grid-cols-3;
+}
+
+#input_1_6 .ginput_container {
+    @apply max-w-full w-full;
+}
+
+body .gform_wrapper.gform-theme--framework .gform_body .gform_fields .gfield.waiver-box {
+    @apply bg-yellow-200 border-2 text-base border-solid border-red p-5 border-opacity-100;
+}
+
+body .gform_wrapper.gform-theme--framework .gform_body .gform_fields .gfield.waiver-box h4 {
+    @apply font-bold text-lg;
+}
+
+.gform-theme.gform-theme--framework.gform_wrapper .button:where(:not(.gform-theme-no-framework):not(.gform-theme__disable):not(.gform-theme__disable *):not(.gform-theme__disable-framework):not(.gform-theme__disable-framework *)), .gform-theme.gform-theme--framework.gform_wrapper .gform-theme-button:where(:not(.gform-theme-no-framework):not(.gform-theme__disable):not(.gform-theme__disable *):not(.gform-theme__disable-framework):not(.gform-theme__disable-framework *)), .gform-theme.gform-theme--framework.gform_wrapper :where(:not(.mce-splitbtn))>button:not([id*=mceu_]):not(.mce-open):where(:not(.gform-theme-no-framework):not(.gform-theme__disable):not(.gform-theme__disable *):not(.gform-theme__disable-framework):not(.gform-theme__disable-framework *)), .gform-theme.gform-theme--framework.gform_wrapper button.button:where(:not(.gform-theme-no-framework):not(.gform-theme__disable):not(.gform-theme__disable *):not(.gform-theme__disable-framework):not(.gform-theme__disable-framework *)), .gform-theme.gform-theme--framework.gform_wrapper input:is([type=submit],[type=button],[type=reset]).button:where(:not(.gform-theme-no-framework):not(.gform-theme__disable):not(.gform-theme__disable *):not(.gform-theme__disable-framework):not(.gform-theme__disable-framework *)), .gform-theme.gform-theme--framework.gform_wrapper input:is([type=submit],[type=button],[type=reset]):where(:not(.gform-theme-no-framework):not(.gform-theme__disable):not(.gform-theme__disable *):not(.gform-theme__disable-framework):not(.gform-theme__disable-framework *)), .gform-theme.gform-theme--framework.gform_wrapper input[type=submit].button.gform_button:where(:not(.gform-theme-no-framework):not(.gform-theme__disable):not(.gform-theme__disable *):not(.gform-theme__disable-framework):not(.gform-theme__disable-framework *)) {
+    @apply bg-primary !important;
+}

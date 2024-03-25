@@ -1,0 +1,13 @@
+{
+    "name": "acf/member-counter",
+    "title": "Gold Rush Member Counter",
+    "description": "List of actions",
+    "style": [ "file:./member-counter.css" ],
+    "category": "media",
+    "icon": "<svg id='gr-icon' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 285.2 350.96'><defs><style>.cls-1{fill:#8cc541;stroke-width:0px;}</style></defs><path class='cls-1' d='M144.99.44l-2.41-.44L0,26.08v115.39c0,55.43,22.98,108.73,66.45,154.14,32.52,33.97,64.76,51.5,66.12,52.23l6.47,3.12,5.06-2.7c1.44-.77,35.66-19.22,70.23-53.8,46.36-46.38,70.87-99.77,70.87-154.39V26.08L144.99.44Z'/></svg>",
+    "keywords": ["Gold rush", "member", "counter"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "member-counter.php"
+    }
+}
