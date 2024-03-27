@@ -172,7 +172,6 @@ module.exports = {
 
 		require('flowbite/plugin'),
 
-		require('gsap'),
 	],
 	safelist: [
 		'no-underline',
