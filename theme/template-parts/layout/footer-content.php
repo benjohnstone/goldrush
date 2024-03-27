@@ -15,12 +15,12 @@ $twitter = get_field('twitter', 'option');
 
 	<div class="w-auto mx-auto relative h-40">
 		
-		<div class="max-w-[850px] mx-auto relative  overflow-hidden h-40">
-			<img id="mtns1" src="<?php echo get_template_directory_uri(); ?>/images/mountains1.svg?Asdf" class="absolute w-[80%] left-[10%] top-0">
+		<div class="max-w-[850px] mx-auto relative  overflow-hidden translate-y-16 h-20 md:translate-y-0 md:h-40">
+			<img id="mtns1" src="<?php echo get_template_directory_uri(); ?>/images/mountains1.svg?Asdf" class="absolute md:w-[80%] left-[10%] top-0">
 			<img id="mtns2" src="<?php echo get_template_directory_uri(); ?>/images/mountains2.svg?ASdf" class="absolute w-full top-0">
 		</div>
 		<div class="grass absolute left-0 right-0 bottom-0 top-auto z-10 h-20 w-full bg-repeat-x" style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/grass.svg');"></div>
-		<div id="footer-logo" class="z-20 absolute z-10 left-0 right-0 top-0 text-center">
+		<div id="footer-logo" class="absolute z-10 left-0 right-0 top-0 text-center">
 			<a href="/" class="top-0 block w-40 mx-auto">
 			<?php
 			$custom_logo_id = get_theme_mod( 'custom_logo' );
