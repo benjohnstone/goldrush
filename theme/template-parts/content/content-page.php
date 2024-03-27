@@ -12,7 +12,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<?php if(!get_field('hide_title')): ?>
-	<header class="entry-header">
+	<header class="entry-header <?php if(get_field('center_title')): ?>text-center<?php endif; ?>">
 		<?php
 		if ( ! is_front_page() ) {
 			the_title( '<h1 class="entry-title">', '</h1>' );

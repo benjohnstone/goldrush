@@ -171,6 +171,8 @@ module.exports = {
 		// require('@tailwindcss/container-queries'),
 
 		require('flowbite/plugin'),
+
+		require('gsap'),
 	],
 	safelist: [
 		'no-underline',
