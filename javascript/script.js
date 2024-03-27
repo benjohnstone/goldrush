@@ -60,8 +60,8 @@ mm.add("(min-width: 768px)", () => {
         ease: "power1.out",
         scrollTrigger: {
             trigger: "#colophon",
-            start: "top bottom",
-            end: "top 25%",
+            start: "top 150%",
+            end: "top bottom",
             scrub: true
         }, 
     });
@@ -71,8 +71,8 @@ mm.add("(min-width: 768px)", () => {
         ease: "power1.out",
         scrollTrigger: {
             trigger: "#colophon",
-            start: "top bottom",
-            end: "top 25%",
+            start: "top 150%",
+            end: "top bottom",
             scrub: true
         }, 
     });
@@ -83,8 +83,8 @@ mm.add("(min-width: 768px)", () => {
         ease: "power1.out",
         scrollTrigger: {
             trigger: "#colophon",
-            start: "top bottom",
-            end: "top 25%",
+            start: "top 150%",
+            end: "top bottom",
             scrub: true
         }, 
     });
@@ -95,8 +95,8 @@ mm.add("(min-width: 768px)", () => {
         scrollTrigger: {
             trigger: "#colophon",
             start: "top bottom",
-            end: "top 50%",
-            scrub: false
+            end: "top 80%",
+            scrub: true
         }, 
     });
     
