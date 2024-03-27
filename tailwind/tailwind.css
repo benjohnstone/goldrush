@@ -33,6 +33,7 @@
 @import "./custom/components/woocommerce.css";
 @import "./custom/components/forms.css";
 @import "./custom/components/my-account.css";
+@import "./custom/components/popups.css";
 /**
  * This injects Tailwind's utility classes and any utility classes registered
  * by plugins, then adds custom utility classes.

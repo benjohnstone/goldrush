@@ -1,0 +1,33 @@
+#popmake-379 {
+    @apply p-0 !important;
+}
+#popmake-379 .pum-content {
+    @apply lg:grid lg:grid-cols-2;
+}
+#popmake-379 .pum-content > p > img.size-medium-square {
+    @apply hidden lg:block h-full object-cover;
+}
+#popmake-379 .pum-content .gform_wrapper {
+    @apply p-8;
+}
+#popmake-379 h2.gform_title {
+    @apply text-xl font-mono uppercase text-primary mb-4;
+}
+#gform_fields_5 .gfield_checkbox .gform-field-label {
+    @apply text-[13px];
+}
+#gform_5 .gform_footer input.gform_button {
+    @apply button-primary;
+}
+#popmake-379 #subscribe-container {
+    @apply relative flex flex-col items-center justify-center;
+}
+
+body #popmake-379 .gform_wrapper .gform_body .gform_fields .gfield .ginput_container .gform-field-label {
+    @apply text-sm;
+}
+body #popmake-379 .gform_wrapper.gform-theme--framework .gform_body .gform_fields .gfield .ginput_container input[type=text], 
+body #popmake-379 .gform_wrapper.gform-theme--framework .gform_body .gform_fields .gfield .ginput_container input[type=email], 
+body #popmake-379 .gform_wrapper.gform-theme--framework .gform_body .gform_fields .gfield .ginput_container input[type=tel] {
+    @apply text-sm py-3 px-3;
+}
