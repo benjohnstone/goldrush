@@ -13,13 +13,15 @@
     @apply block;
 }
 .woocommerce-MyAccount-navigation {
-    @apply w-full lg:w-[200px] lg:mr-10 text-base;
+    @apply w-full lg:w-[200px] lg:mr-10 text-base mb-10;
 }
 .woocommerce-MyAccount-navigation > ul {
-    @apply list-none p-0 border rounded-md m-0 shop-table-border ;
+    @apply list-none p-0 border rounded-md m-0 shop-table-border text-sm;
+
+    @apply p-0 !important;
 }
 .woocommerce-MyAccount-navigation > ul a {
-    @apply text-dark no-underline block p-2;
+    @apply text-dark no-underline block p-3 px-4;
 }
 .woocommerce-MyAccount-navigation > ul > li {
     @apply m-0 p-0 ;
@@ -64,5 +66,12 @@ body.woocommrece-edit-address .woocommerce-address-fields__field-wrapper {
 }
 
 .logged-in.woocommerce-account .entry-header h1.entry-title {
-    @apply border-b border-concrete-600 pb-8 text-3xl;
+    @apply  pb-8 text-3xl;
+}
+
+.membership-card.on-hold {
+    @apply saturate-0 text-foreground/50;
+}
+.membership-card.on-hold > :not(.card-header) {
+    @apply pointer-events-none;
 }

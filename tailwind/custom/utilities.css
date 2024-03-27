@@ -10,14 +10,14 @@
 
 
 .input {
-    @apply border-concrete-600 border rounded-sm bg-concrete px-3 py-2;
+    @apply border-concrete-600 border rounded-md bg-concrete px-3 py-3;
 }
 .button {
-    @apply bg-concrete-700 px-3 py-2 rounded-sm text-black  no-underline border border-concrete-700;
+    @apply bg-concrete-700 px-3 py-3 rounded-md text-black  no-underline border border-concrete-700;
 }
 .button-primary,
 :root a.button-primary  {
-    @apply  bg-primary px-3 py-2 rounded-sm text-white  no-underline border border-primary;
+    @apply  bg-primary px-5 py-3 rounded-md text-white  no-underline border border-primary hover:bg-primary-600 hover:text-white;
 }
 .text-dark {
     @apply text-black/70;

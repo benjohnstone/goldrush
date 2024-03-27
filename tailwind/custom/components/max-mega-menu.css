@@ -47,6 +47,6 @@
 }
 
 #mega-menu-wrap-menu-1 #mega-menu-menu-1 > li.mega-menu-flyout ul.mega-sub-menu {
-	@apply left-auto right-0 shadow-md;
+	@apply left-auto right-0 lg:shadow-md;
 }
 

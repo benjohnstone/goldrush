@@ -53,80 +53,104 @@ function getScrollPosition(){
 getScrollPosition();
 
 
- gsap.from("#mtns1", {
-    top: 50,
-    ease: "power1.out",
-    scrollTrigger: {
-        trigger: "#colophon",
-        start: "top bottom",
-        end: "top 25%",
-        scrub: true
-    }, 
-});
+mm.add("(min-width: 768px)", () => {
 
-gsap.from("#mtns2", {
-    top: 100,
-    ease: "power1.out",
-    scrollTrigger: {
-        trigger: "#colophon",
-        start: "top bottom",
-        end: "top 25%",
-        scrub: true
-    }, 
-});
-
-
-gsap.from("#footer-logo", {
-    top: 150,
-    ease: "power1.out",
-    scrollTrigger: {
-        trigger: "#colophon",
-        start: "top bottom",
-        end: "top 25%",
-        scrub: true
-    }, 
-});
-
-gsap.from("#footer-content", {
-    y: 350,
-    ease: "power1.out",
-    scrollTrigger: {
-        trigger: "#colophon",
-        start: "top bottom",
-        end: "top 25%",
-        scrub: true
-    }, 
-});
-
-if(document.getElementById('get-involved')) {
-    gsap.from("#get-involved .wp-block-column", {
-        y: 100,
-        opacity: 0,
-        stagger: 0.2,
+    gsap.from("#mtns1", {
+        top: 50,
         ease: "power1.out",
         scrollTrigger: {
-            trigger: "#get-involved",
-            start: "top 80%",
+            trigger: "#colophon",
+            start: "top bottom",
+            end: "top 25%",
+            scrub: true
+        }, 
+    });
+    
+    gsap.from("#mtns2", {
+        top: 100,
+        ease: "power1.out",
+        scrollTrigger: {
+            trigger: "#colophon",
+            start: "top bottom",
+            end: "top 25%",
+            scrub: true
+        }, 
+    });
+    
+    
+    gsap.from("#footer-logo", {
+        top: 150,
+        ease: "power1.out",
+        scrollTrigger: {
+            trigger: "#colophon",
+            start: "top bottom",
+            end: "top 25%",
+            scrub: true
+        }, 
+    });
+    
+    gsap.from("#footer-content", {
+        y: 350,
+        ease: "power1.out",
+        scrollTrigger: {
+            trigger: "#colophon",
+            start: "top bottom",
             end: "top 50%",
             scrub: false
         }, 
     });
-}
+    
+    if(document.getElementById('get-involved')) {
+        gsap.from("#get-involved .wp-block-column", {
+            y: 100,
+            opacity: 0,
+            stagger: 0.2,
+            ease: "power1.out",
+            scrollTrigger: {
+                trigger: "#get-involved",
+                start: "top 80%",
+                end: "top 50%",
+                scrub: false
+            }, 
+        });
+    }
+    
+    if(document.getElementById('callouts')) {
+        gsap.from("#callouts .wp-block-column", {
+            y: 100,
+            opacity: 0,
+            stagger: 0.2,
+            ease: "power1.out",
+            scrollTrigger: {
+                trigger: "#callouts",
+                start: "top 80%",
+                end: "top 50%",
+                scrub: false
+            }, 
+        });
+    }
 
-if(document.getElementById('callouts')) {
-    gsap.from("#callouts .wp-block-column", {
-        y: 100,
-        opacity: 0,
-        stagger: 0.2,
-        ease: "power1.out",
-        scrollTrigger: {
-            trigger: "#callouts",
-            start: "top 80%",
-            end: "top 50%",
-            scrub: false
-        }, 
+    gsap.utils.toArray(document.querySelectorAll('.home #main > .page > .entry-content > *:not(#top), .blog .type-post')).forEach(function (el) {
+    
+        gsap.from(el, {
+            y: 300,
+            opacity: 0,
+            stagger: 0.2,
+            ease: "power1.out",
+            scrollTrigger: {
+                trigger: el,
+                start: "top bottom",
+                end: "top 50%",
+                scrub: false
+            }, 
+        });
     });
-}
+
+    /** end match media  **/
+  });
+
+
+
 
 /*
  * member counter 
@@ -155,45 +179,10 @@ gsap.utils.toArray('.counterOne').forEach(function (el) {
   });
 });
 
-// gsap.utils.toArray('.counterTwo').forEach(function (el) {
-//   var target = { val: 0 };
-//   tl.to(target, {
-//     val: el.getAttribute('data-number'),
-//     duration: 5,
-//     onUpdate: function () {
-//       el.innerText = target.val.toFixed(0);
-//     },
-//   });
-// });
-
-// gsap.utils.toArray('.counterThree').forEach(function (el) {
-//   var target = { val: 0 };
-//   tl.to(target, {
-//     val: el.getAttribute('data-number'),
-//     duration: 3,
-//     onUpdate: function () {
-//       el.innerText = target.val.toFixed(0);
-//     },
-//   });
-// });
 
 tl.play();
 
-gsap.utils.toArray(document.querySelectorAll('.home #main > .page > .entry-content > *:not(#top), .blog .type-post')).forEach(function (el) {
-    
-    gsap.from(el, {
-        y: 300,
-        opacity: 0,
-        stagger: 0.2,
-        ease: "power1.out",
-        scrollTrigger: {
-            trigger: el,
-            start: "top bottom",
-            end: "top 50%",
-            scrub: false
-        }, 
-    });
-});
+
 
 let saveFieldBtns = document.querySelectorAll('.save-field-btn');
 let editableFields = document.querySelectorAll('form.editable-field-wrapper');

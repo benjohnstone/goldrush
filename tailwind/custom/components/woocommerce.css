@@ -190,7 +190,7 @@ a.button.reactivate {
 }
 
 .product-image-banner.header-content {
-    @apply mt-40;
+    @apply mt-0;
 }
 
 .type-product.entry-content {

@@ -35,7 +35,7 @@ $twitter = get_field('twitter', 'option');
 
 
 
-	<div class="bg-thunder prose overflow-hidden">
+	<div class="bg-thunder prose overflow-hidden  pb-20">
 		<div id="footer-content" class="p-5 max-w-wide mx-auto">
 			<?php if ( is_active_sidebar( 'sidebar-1' ) ) : ?>
 				<aside role="complementary" aria-label="<?php esc_attr_e( 'Footer', 'goldrush' ); ?>">

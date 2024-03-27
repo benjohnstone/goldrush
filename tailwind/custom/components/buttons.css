@@ -6,3 +6,15 @@ a.wp-block-button__link.has-primary-background-color {
 a.wp-block-button__link {
 	@apply no-underline uppercase font-bold tracking-wide;
 }
+
+.wp-block-button.is-style-outline a.wp-block-button__link {
+    @apply relative transition-transform duration-300 hover:scale-105;
+}
+
+.wp-block-button.is-style-outline a.wp-block-button__link::before {
+    @apply scale-x-0 opacity-0 absolute w-full h-full content-[''] bg-primary left-0 top-0 right-0 bottom-0 -z-10 transition-all duration-300;
+}
+
+.wp-block-button.is-style-outline a.wp-block-button__link:hover::before {
+    @apply opacity-100 scale-x-100;
+}

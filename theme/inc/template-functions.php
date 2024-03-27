@@ -247,6 +247,13 @@ register_block_style(
 			'label' => __( 'Image slider', 'goldrush' ),
 		)
 );
+register_block_style(
+	'core/list',
+		array(
+			'name'  => 'checkmark',
+			'label' => __( 'Checkmark', 'goldrush' ),
+		)
+);
 
 add_action( 'init', 'goldrush_register_acf_blocks', 5);
 function goldrush_register_acf_blocks() {
@@ -371,3 +378,11 @@ function rs_gf_get_checked_boxes( $entry, $field_id ) {
 	
 	return $items;
 }
+
+add_filter( 'body_class', function( $classes ) {
+	if(get_field('transparent_navbar')) {
+		$classes[] = 'transparent-navbar';
+	}
+
+	return $classes;
+} );

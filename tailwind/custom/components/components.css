@@ -82,7 +82,12 @@
 .wp-block-columns:has(.icon-card.wp-block-group) > .wp-block-column {
 	@apply relative;
 }
-
+#callouts > .wp-block-columns {
+	@apply block lg:flex max-w-lg lg:max-w-none mx-auto;
+}
+#callouts > .wp-block-columns > .wp-block-column {
+	@apply pt-20 lg:pt-0;
+}
 
 .wp-block-cover img.wp-block-cover__image-background {
 	@apply my-0;

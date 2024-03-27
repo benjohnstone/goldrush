@@ -121,9 +121,20 @@ if ( ! function_exists( 'goldrush_setup' ) ) :
 		add_theme_support( 'custom-logo' );
 
 		add_theme_support('woocommerce');
+
+		add_image_size( 'medium-square', 400, 400, true ); // 220 pixels wide by 180 pixels tall, hard crop mode
 	}
 endif;
 add_action( 'after_setup_theme', 'goldrush_setup' );
+
+
+add_filter( 'image_size_names_choose', 'goldrush_custom_sizes' );
+
+function goldrush_custom_sizes( $sizes ) {
+	return array_merge( $sizes, array(
+		'medium-square' => __( 'Medium square' ),
+	) );
+}
 
 /**
  * Register widget area.

@@ -77,7 +77,7 @@ if ( ! function_exists( 'goldrush_entry_meta' ) ) :
 
 			/* translators: used between list items, there is a space after the comma. */
 			$categories_list = get_the_category_list( __( ', ', 'goldrush' ) );
-			
+			$categories_list = false;
 			?>
 			<span class="mr-3">
 			<?php

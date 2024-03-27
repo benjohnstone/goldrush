@@ -17,8 +17,10 @@
 	<div id="top-bar" class="flex bg-charcoal text-white/60 text-sm p-2 px-5">
 		
 		<div class="left mr-auto ml-0 flex flex-row items-center gap-4">
-			<a href="#" class="flex flex-row items-center hover:text-white"><span class="material-symbols-outlined mr-1">monetization_on</span> <span class="hidden md:inline">DONATE</span></a>
-			<a href="#" class="flex flex-row items-center hover:text-white"><span class="material-symbols-outlined mr-1">person_add</span> <span class="hidden md:inline">BECOME A MEMBER</span></a>	
+			<?php if(get_post_status(407) == 'publish'): ?>
+			<a href="<?php echo get_the_permalink(407); ?>" class="flex flex-row items-center hover:text-white"><span class="material-symbols-outlined mr-1">monetization_on</span> <span class="hidden md:inline">DONATE</span></a>
+			<?php endif; ?>
+			<a href="/membership/" class="flex flex-row items-center hover:text-white"><span class="material-symbols-outlined mr-1">person_add</span> <span class="hidden md:inline">BECOME A MEMBER</span></a>	
 		</div>
 
 		<div class="right ml-auto mr-0 flex flex-row items-center gap-4">
@@ -28,15 +30,15 @@
 		</div>
 	</div>
 
-	<div class="bg-primary text-white items-center px-5">
+	<div class="masthead-inner <?php if(get_field('transparent_navbar', get_the_id()) && !is_archive()): ?>bg-black/40<?php else: ?>bg-primary<?php endif; ?> text-white items-center px-5 transition-all duration-900 shadow-lg">
 		<div id="navbar" class="flex flex-row items-center justify-between transition-all duration-300 py-3">
 
-			<div class="hidden basis-5/12 lg:block py-5 leading-tight ">
+			<div class="brand-name-and-tagline hidden basis-5/12 lg:block py-5 leading-tight ">
 				<a href="/" class="font-mono brand-name uppercase font-normal tracking-wide no-underline text-balance block leading-none"><?php echo get_bloginfo('name'); ?></a>
 				<div class="brand-tagline text-balance"><?php the_field('tagline_below_title', 'option'); ?></div>
 			</div>
 			
-			<a href="/" class="basis-1/2 lg:basis-2/12 ml-0 lg:ml-0 lg:mr-auto text-center -mt-8 -mb-12 relative flex items-center justify-center">
+			<a href="/" class="basis-1/4 lg:basis-2/12 ml-0 lg:ml-0 lg:mr-auto text-center -mt-8 -mb-12 relative flex items-center justify-center">
 			<?php
 				$custom_logo_id = get_theme_mod( 'custom_logo' );
 				$logo = wp_get_attachment_image_src( $custom_logo_id , 'full' );

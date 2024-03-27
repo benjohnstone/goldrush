@@ -293,9 +293,9 @@ function goldrush_member_card($gfEntryId, $status, $membershipType, $subscriptio
     $memberId = $subscriptionId . '-' . $gfEntryId;
     ?>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    <div class="shop-table-border mb-4 text-base not-prose">
+    <div class="membership-card shop-table-border mb-10 text-base not-prose <?php if($status == 'Active'): ?>active<?php else: ?>on-hold<?php endif; ?>">
 
-        <div class="p-4 -mt-4 -ml-4 -mr-4 mb-5 <?php if($status == 'Active'): ?>bg-primary<?php else: ?>bg-concrete-700<?php endif; ?> text-white rounded-t-md md:flex items-center">
+        <div class="card-header p-4 -mt-4 -ml-4 -mr-4 mb-5 <?php if($status == 'Active'): ?>bg-foreground<?php else: ?>bg-concrete-700<?php endif; ?> text-white rounded-t-md md:flex items-center">
             <div class="font-bold text-lg"><?php echo $entry['1.3'] . ' ' . $entry['1.6']; ?></div>
             <div class="flex items-center md:ml-auto md:mr-0 flex-nowrap">
                 <div class="md:ml-auto mr-0"><?php echo $membershipType; ?></div>
@@ -346,7 +346,7 @@ function goldrush_member_card($gfEntryId, $status, $membershipType, $subscriptio
                 
             ?>
 
-            <div class="w-40 py-2">Interests: <label class="text-concrete-800 text-sm info-label" for="<?php echo $gfEntryId; ?>-phone">(click to edit)</label></div> 
+            <div class="w-full py-2">Interests: <label class="text-concrete-800 text-sm info-label" for="<?php echo $gfEntryId; ?>-phone">(click to edit)</label></div> 
             <form class="editable-field-wrapper interests" data-field-name="interests" data-gf-field-id="11" data-gf-entry-id="<?php echo $gfEntryId; ?>">
                 <div class="field-value">
                     <div class="current-value p-2 border border-white">
@@ -469,14 +469,17 @@ add_action('woocommerce_subscription_status_on-hold', function($subscription){
     
     //$valid = verifyFamilyMembership(array($subscription), 'return');
     foreach($order->get_items() as $id => $orderItem) {
-        
-        if($orderItem->get_name() == 'Membership') { // single membership
+        $product = $orderItem->get_product();
+        $productName = $product->get_name();
+
+        if(str_contains(strtolower($productName), 'family') == false) {
+             /** not a family membership */
             if($gfEntries = $orderItem->get_meta('gspc_gf_entry_ids')) {
-                
+                write_log($gfEntries);
                 if($gfEntries) {
                     foreach($gfEntries as $index => $entryId ) {
                         $entry = GFAPI::get_entry($entryId);
-                        $entry['status'] = 'trash';
+                        $entry['32'] = 'Disabled';
                         GFAPI::update_entry($entry);
                         
                     }
@@ -485,21 +488,28 @@ add_action('woocommerce_subscription_status_on-hold', function($subscription){
             }
         }
 
-        if($orderItem->get_name() == 'Family Membership') {
-
-            // $valid = verifyFamilyMembership(array($subscription), 'return');
+       if(str_contains(strtolower($productName), 'family')) {
+            /** is a family membership */
+          
              if($gfEntries = $orderItem->get_meta('gspc_gf_entry_ids')) {
-                 
-                 foreach($gfEntries as $index => $entryId ) {
-                     $famEntry = GFAPI::get_entry($entryId);
-                     $famEntry['status'] = 'trash';
-                     GFAPI::update_entry($famEntry);
- 
+                
+                 foreach($gfEntries as $index => $famEntryId ) {
+                       
+                     $famEntry = GFAPI::get_entry($famEntryId);
+                    
                      $famMembers = explode(',',$famEntry['3']);
-                     foreach($famMembers as $entryId) {
-                         $entry = GFAPI::get_entry($entryId);
-                         $entry['status'] = 'trash';
-                         GFAPI::update_entry($entry);
+                    
+
+                     foreach($famMembers as $famMemberEntryId) {
+                        
+                         $famMember = GFAPI::get_entry($famMemberEntryId);
+                        
+                         if($famMember && is_array($famMember)) {
+                            write_log($famMember);
+                            $famMember['32'] = 'Disabled';
+                            GFAPI::update_entry($famMember);
+                         }
+                         
                      }
                      
                  }
@@ -513,6 +523,54 @@ add_action('woocommerce_subscription_status_on-hold', function($subscription){
 add_action('woocommerce_subscription_status_active', function($subscription){
     $orderId = $subscription->get_parent_id();
     $order = wc_get_order($orderId);
+
+    $subscriptionId = $subscription->get_id();
+    $order = wc_get_order($subscriptionId);
+
+    foreach($order->get_items() as $id => $orderItem) {
+        $product = $orderItem->get_product();
+        $productName = $product->get_name();
+
+        if(str_contains(strtolower($productName), 'family') == false) {
+            /** not a family membership */
+            if($gfEntries = $orderItem->get_meta('gspc_gf_entry_ids')) {
+                
+                if($gfEntries) {
+                    foreach($gfEntries as $index => $entryId ) {
+                        $entry = GFAPI::get_entry($entryId);
+                        $entry['32'] = 'Active';
+                        GFAPI::update_entry($entry);
+                    }
+                }
+                
+            }
+        }
+
+        if(str_contains(strtolower($productName), 'family')) {
+             /** is a family membership */
+            if($gfEntries = $orderItem->get_meta('gspc_gf_entry_ids')) {
+             
+                foreach($gfEntries as $famEntryId) {
+                    //write_log($entryId);
+                    $famEntry = GFAPI::get_entry($famEntryId);
+                    $famMembers = explode(',',$famEntry['3']);
+                    write_log($famMembers);
+                    foreach($famMembers as $famMemberEntryId) {
+                        $famMemberEntry = GFAPI::get_entry($famMemberEntryId);
+                        //write_log($famMemberEntry);
+                        if($famMemberEntry && is_array($famMemberEntry)) {
+                            $famMemberEntry['32'] = 'Active';
+                            GFAPI::update_entry($famMemberEntry);
+                        }
+                       
+                    }
+                    
+                }
+            }
+
+        } 
+        
+    }
     
 });
 
@@ -544,6 +602,7 @@ function goldrush_subscription_end_date($subscription, $order, $recurring_cart) 
             if($gfEntries = $orderItem->get_meta('gspc_gf_entry_ids')) {
                 
                 foreach($gfEntries as $index => $entryId ) {
+                
                     $famEntry = GFAPI::get_entry($entryId);
                     $famEntry['status'] = 'active';
                     GFAPI::update_entry($famEntry);
@@ -553,7 +612,7 @@ function goldrush_subscription_end_date($subscription, $order, $recurring_cart) 
                     foreach($famMembers as $entryId) {
                         $entry = GFAPI::get_entry($entryId);
                         $entry['status'] = 'active';
-                        GFAPI::update_entry($entry);
+                       GFAPI::update_entry($entry);
                     }
                     $adults = array();
                     $youth = array();
@@ -614,4 +673,80 @@ function goldrush_subscription_end_date($subscription, $order, $recurring_cart) 
         
        
     } 
+}
+
+
+// enable gutenberg for woocommerce
+
+function goldrush_activate_gutenberg_product( $can_edit, $post_type ) {
+
+    if ( $post_type == 'product' ) {
+   
+           $can_edit = true;
+   
+       }
+   
+       return $can_edit;
+   
+   }
+   
+   add_filter( 'use_block_editor_for_post_type', 'goldrush_activate_gutenberg_product', 10, 2 );
+   
+   
+   
+   // enable taxonomy fields for woocommerce with gutenberg on
+   
+   function enable_taxonomy_rest( $args ) {
+   
+       $args['show_in_rest'] = true;
+   
+       return $args;
+   
+   }
+   
+   add_filter( 'woocommerce_taxonomy_args_product_cat', 'enable_taxonomy_rest' );
+   
+   add_filter( 'woocommerce_taxonomy_args_product_tag', 'enable_taxonomy_rest' );
+
+
+/**
+ * set membership orders to completed upon payment
+ */
+add_action('woocommerce_thankyou', 'goldrush_autocomplete_virtual_orders', 10, 1 );
+function goldrush_autocomplete_virtual_orders( $order_id ) {
+ 
+    if( ! $order_id ) return;
+ 
+    // Get the order
+    $order = wc_get_order( $order_id );
+ 
+    // get each product in the order
+    $items = $order->get_items();
+ 
+    // create and set variable
+    $only_virtual = true;
+ 
+    foreach ( $items as $item ) {
+ 
+        // get product id
+        $product = wc_get_product( $item['product_id'] );
+ 
+        // is a virtual product
+        $is_virtual = $product->is_virtual();
+ 
+        // is a downloadable product
+        $is_downloadable = $product->is_downloadable();
+ 
+        if ( ! $is_virtual && ! $is_downloadable  ) {
+ 
+            $only_virtual = false;
+        }
+ 
+    }
+ 
+    if ( $only_virtual ) {
+ 
+        $order->update_status( 'completed' );
+ 
+    }
 }

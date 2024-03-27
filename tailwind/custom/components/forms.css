@@ -2,17 +2,13 @@
     --gf-local-font-size: 24px;
 }
 
-body .gform_wrapper .gform_body .gform_fields .gfield .gfield_label {
-   @apply text-lg;
-}
-
 body .gform_wrapper .gform_body .gform_fields .gfield .ginput_container .gform-field-label {
     @apply text-base;
 }
 body .gform_wrapper.gform-theme--framework .gform_body .gform_fields .gfield .ginput_container input[type=text],
 body .gform_wrapper.gform-theme--framework .gform_body .gform_fields .gfield .ginput_container input[type=email],
 body .gform_wrapper.gform-theme--framework .gform_body .gform_fields .gfield .ginput_container input[type=tel] {
-    @apply text-lg border-gray-400 shadow-none py-6 px-4 rounded-md;
+    @apply text-base border-gray-400 shadow-none py-6 px-4 rounded-md;
 }
 
 body .gform_wrapper.gform-theme--framework .gform_body .gform_fields .gfield .ginput_container .ginput_container_date select {
@@ -62,6 +58,10 @@ button.single_add_to_cart_button {
     @apply max-w-full w-full;
 }
 
+input.input-text {
+    @apply input;
+}
+
 body .gform_wrapper.gform-theme--framework .gform_body .gform_fields .gfield.waiver-box {
     @apply bg-yellow-200 border-2 text-base border-solid border-red p-5 border-opacity-100;
 }
@@ -70,6 +70,13 @@ body .gform_wrapper.gform-theme--framework .gform_body .gform_fields .gfield.wai
     @apply font-bold text-lg;
 }
 
-.gform-theme.gform-theme--framework.gform_wrapper .button:where(:not(.gform-theme-no-framework):not(.gform-theme__disable):not(.gform-theme__disable *):not(.gform-theme__disable-framework):not(.gform-theme__disable-framework *)), .gform-theme.gform-theme--framework.gform_wrapper .gform-theme-button:where(:not(.gform-theme-no-framework):not(.gform-theme__disable):not(.gform-theme__disable *):not(.gform-theme__disable-framework):not(.gform-theme__disable-framework *)), .gform-theme.gform-theme--framework.gform_wrapper :where(:not(.mce-splitbtn))>button:not([id*=mceu_]):not(.mce-open):where(:not(.gform-theme-no-framework):not(.gform-theme__disable):not(.gform-theme__disable *):not(.gform-theme__disable-framework):not(.gform-theme__disable-framework *)), .gform-theme.gform-theme--framework.gform_wrapper button.button:where(:not(.gform-theme-no-framework):not(.gform-theme__disable):not(.gform-theme__disable *):not(.gform-theme__disable-framework):not(.gform-theme__disable-framework *)), .gform-theme.gform-theme--framework.gform_wrapper input:is([type=submit],[type=button],[type=reset]).button:where(:not(.gform-theme-no-framework):not(.gform-theme__disable):not(.gform-theme__disable *):not(.gform-theme__disable-framework):not(.gform-theme__disable-framework *)), .gform-theme.gform-theme--framework.gform_wrapper input:is([type=submit],[type=button],[type=reset]):where(:not(.gform-theme-no-framework):not(.gform-theme__disable):not(.gform-theme__disable *):not(.gform-theme__disable-framework):not(.gform-theme__disable-framework *)), .gform-theme.gform-theme--framework.gform_wrapper input[type=submit].button.gform_button:where(:not(.gform-theme-no-framework):not(.gform-theme__disable):not(.gform-theme__disable *):not(.gform-theme__disable-framework):not(.gform-theme__disable-framework *)) {
-    @apply bg-primary !important;
+
+
+
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce button[type=submit] {
+    @apply button-primary !important;
+}
+
+:root .tingle-modal {
+    @apply bg-black/50;
 }
